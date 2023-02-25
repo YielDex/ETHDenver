@@ -6,6 +6,7 @@
 - Wallet Connect / web3auth
 - Polygon / Neon / 
 - Huma
+- Truffle react box
 
 ## Additionnal bounties
 
