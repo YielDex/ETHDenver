@@ -1,1 +1,5 @@
 # ETHDenver
+
+# Additionnal bounties
+
+- Use OKK to find yield strategie that match the ERC 
