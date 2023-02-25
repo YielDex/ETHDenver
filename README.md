@@ -7,6 +7,8 @@
 - Polygon / Neon / 
 - Huma
 - Truffle react box
+- Infura
+- Truffle Dashboard
 
 ## Additionnal bounties
 
