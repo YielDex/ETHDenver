@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const Block = ({ title, image, score, cryptoLogo, onClick }) => {
+const Block = ({ strategyName, image, score, cryptoLogo, onClick }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedAsset, setSelectedAsset] = useState("");
   const [orderPrice, setOrderPrice] = useState("");
@@ -25,10 +25,10 @@ const Block = ({ title, image, score, cryptoLogo, onClick }) => {
     <>
       <div className="block" onClick={handleModalOpen}>
         <div className="image-wrapper">
-          <img className="image" src={image} alt={title} />
+          <img className="image" src={image} alt={strategyName} />
         </div>
-        <h2 className="title">
-          {title}
+        <h2 className="strategyName">
+          {strategyName}
           <img className="logo" src={cryptoLogo} />
         </h2>
       </div>
@@ -36,28 +36,21 @@ const Block = ({ title, image, score, cryptoLogo, onClick }) => {
         <div className="modal">
           <div className="modal-content">
             <div className="modal-header">
-              <h2>{title}</h2>
+              <h2>{strategyName}</h2>
               <button className="close-btn" onClick={handleModalClose}>
                 X
               </button>
             </div>
             <div className="modal-body">
-              <div className="modal-image-wrapper">
-                <img className="modal-image" src={image} alt={title} />
-              </div>
-              <h2 className="modal-title">
-                {title}
-                <img className="modal-logo" src={cryptoLogo} />
-              </h2>
-              <div className="modal-form">
-                <label>Asset:</label>
+            <div className="modal-form">
+                <label>Asset to buy:</label>
                 <select value={selectedAsset} onChange={handleAssetChange}>
                   <option value="">--Please choose an asset--</option>
-                  <option value="Asset1">Asset1</option>
-                  <option value="Asset2">Asset2</option>
-                  <option value="Asset3">Asset3</option>
+                  <option value="ETH">ETH</option>
+                  <option value="wBTC">wBTC</option>
+                  <option value="Matic">Matic</option>
                 </select>
-                <label>Order price:</label>
+                <label>Order price: </label>
                 <input
                   type="number"
                   value={orderPrice}
@@ -66,7 +59,17 @@ const Block = ({ title, image, score, cryptoLogo, onClick }) => {
                 <button className="modal-btn" onClick={handleModalClose}>
                   Valider
                 </button>
-              </div>
+            </div>
+            {/* <div className="modal-image-wrapper">
+                <img className="modal-image" src={image} alt={strategyName} />
+            </div> */}
+            {selectedAsset && orderPrice && (
+                <h2 className="modal-strategyName">
+                Your order will get yield on {strategyName} waitting {selectedAsset} price go down to {orderPrice} 
+                <img className="modal-logo" src={cryptoLogo} />
+            </h2>)
+            }
+              
             </div>
           </div>
         </div>

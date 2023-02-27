@@ -34,7 +34,7 @@ const generateData = (count) => {
       let {protocolName, protocolLogo} = generateProtocol();
       let {cryptoName, cryptoLogo} = generateCrypto();
       data.push({
-        title: `${protocolName + " " + cryptoName}`,
+        strategyName: `${protocolName + " " + cryptoName}`,
         // image: `https://source.unsplash.com/random/${300 + i}x${300 + i}`,
         image: protocolLogo,
         score: Math.floor(Math.random() * 5) + 1,
@@ -55,7 +55,7 @@ export default function Strategies() {
         {data.map((item, index) => (
           <Block
             key={index}
-            title={item.title}
+            strategyName={item.strategyName}
             image={item.image}
             score={item.score}
             cryptoLogo={item.cryptoLogo}
