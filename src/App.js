@@ -9,6 +9,8 @@ import { useSigner, useAccount, Web3Button } from '@web3modal/react'
 
 import { useWeb3Polygon } from './hooks/useWeb3';
 
+import FormHead from './componants/FormHead';
+
 import Strategies from './componants/Strategies';
 
 const config = {
@@ -54,6 +56,7 @@ const App = () => {
         <div className="flex-row">
             <p className="text-white">{shortenString(account.address)}</p> <Web3Button/><br />
         </div>
+        <FormHead />
         {page === 'strategies' && <Strategies />}
       </div>
     </>
