@@ -64,10 +64,10 @@ const Block = ({ strategyName, image, score, cryptoLogo, onClick }) => {
                 <img className="modal-image" src={image} alt={strategyName} />
             </div> */}
             {selectedAsset && orderPrice && (
-                <h2 className="modal-strategyName">
-                Your order will get yield on {strategyName} waitting {selectedAsset} price go down to {orderPrice} 
-                <img className="modal-logo" src={cryptoLogo} />
-            </h2>)
+                <p className="modal-strategyName">
+                    Your order will get yield on {strategyName} waitting {selectedAsset} price go down to {orderPrice} 
+                    <img className="modal-logo" src={cryptoLogo} />
+                </p>)
             }
               
             </div>
