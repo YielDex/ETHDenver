@@ -3,6 +3,7 @@ import { ethers } from "ethers";
 import { useSigner, useAccount, Web3Button } from '@web3modal/react'
 
 import { useWeb3Polygon } from '../hooks/useWeb3';
+import Strategies from '../componants/Strategies';
 
 const Home = ({ appState }) => {
 
@@ -26,6 +27,7 @@ const Home = ({ appState }) => {
                 <p className="text-white">{shortenString(account.address)}</p> <Web3Button/><br />
                 {GrandView}
             </div>
+            <Strategies/>
         </div>
     )
 }
