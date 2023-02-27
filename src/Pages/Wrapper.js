@@ -5,7 +5,7 @@ import { useSigner, useAccount, Web3Button } from '@web3modal/react'
 import { useWeb3Polygon } from '../hooks/useWeb3';
 import Strategies from '../componants/Strategies';
 
-const Home = ({ appState }) => {
+const Wrapper = ({ children }) => {
 
     const { account, isReady } = useAccount();
     const web3Polygon = useWeb3Polygon();
@@ -24,9 +24,9 @@ const Home = ({ appState }) => {
             <div className="flex-row">
                 <p className="text-white">{shortenString(account.address)}</p> <Web3Button/><br />
             </div>
-            <Strategies/>
+            {children}
         </div>
     )
 }
 
-export default Home;
+export default Wrapper;

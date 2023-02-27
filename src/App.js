@@ -1,13 +1,10 @@
-import { useState } from "react";
-
-import WalletConnectScreen from "./Pages/Wallet-connect";
-import Home from './Pages/Home'
-
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Strategies from './componants/Strategies';
 import { Web3Modal } from '@web3modal/react';
 import { providers } from '@web3modal/ethereum';
 import { gnosisTestnet, cronosTestnet, mumbaiTestnet } from "./utils/network";
-
-import "./App.css";
+import { useState } from 'react';
+import Wrapper from './Pages/Wrapper';
 
 const config = {
   projectId: '1bd4139fcba9da0ebb55e2d5ffa1d12d',
@@ -29,30 +26,18 @@ const config = {
   }
 };
 
+const App = () => {
 
-function App() {
-  const [appState, setAppState] = useState({
-    view: "start",
-  });
+  const [page, setPage] = useState('strategies');
 
-  const componentToRender = () => {
-    switch(appState.view) {
-      case "start":
-        return <WalletConnectScreen changeConnectedWallet={setAppState}/>;
-      case "create":
-        return <Home appState={appState} />;
-      default:
-        return <WalletConnectScreen changeConnectedWallet={setAppState}/>;
-    }
-  }
-
-  return (
+  return(
     <>
       <Web3Modal config={config}/>
-      <div className="App">
-        {componentToRender()}
-      </div>
+      <Wrapper>
+        {page === 'strategies' && <Strategies />}
+      </Wrapper>
     </>
+    
   );
 }
 
