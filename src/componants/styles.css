@@ -30,10 +30,14 @@
     overflow: hidden;
   }
   
-  .image {
+  .image, .logo {
     width: 100%;
     height: auto;
     object-fit: cover;
+  }
+
+  .logo {
+    width: 20px
   }
   
   .title {
