@@ -18,14 +18,11 @@ const Home = ({ appState }) => {
         return `${firstPart}..${secondPart}`;
     }
 
-    var GrandView = (<></>)
-
     return (
         <div className="main-content">
             <h3 className="text-white main-title">MOMENTO</h3>
             <div className="flex-row">
                 <p className="text-white">{shortenString(account.address)}</p> <Web3Button/><br />
-                {GrandView}
             </div>
             <Strategies/>
         </div>
