@@ -47,6 +47,7 @@ const generateData = (count) => {
 const data = generateData(10);
 
 export default function Strategies() {
+
   return (
     <div className="Strategies">
       <h1>Blocs avec titre, image et score</h1>
@@ -58,7 +59,6 @@ export default function Strategies() {
             image={item.image}
             score={item.score}
             cryptoLogo={item.cryptoLogo}
-            onClick={() => console.log(item.title)}
           />
         ))}
       </div>
