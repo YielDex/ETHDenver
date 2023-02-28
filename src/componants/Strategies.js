@@ -72,24 +72,30 @@ const generateData = (count) => {
 export default function Strategies({ selectedBuyAsset, selectedUnderlayingAsset}) {
 
   let blocks = generateData(10);
-  blocks = blocks.filter((item) => item.underlayingAsset === selectedUnderlayingAsset);
+
+  if(selectedUnderlayingAsset != ""){
+    blocks = blocks.filter((item) => item.underlayingAsset === selectedUnderlayingAsset);
+  }
+  
 
 
   return (
     <div className="Strategies">
       <h1>Blocs avec titre, image et score</h1>
       <div className="blocks">
-        {selectedUnderlayingAsset && (
-          blocks.map((item, index) => (
-            <Block
-              key={index}
-              strategyName={item.strategyName}
-              image={item.image}
-              score={item.score}
-              cryptoLogo={item.cryptoLogo}
-            />
+        {
+          blocks.map(
+            (item, index) => (
+              <Block
+                key={index}
+                strategyName={item.strategyName}
+                image={item.image}
+                score={item.score}
+                cryptoLogo={item.cryptoLogo}
+              />
+            )
           )
-        ))}
+        }
       </div>
     </div>
   );
