@@ -1,12 +1,15 @@
 import { useState } from 'react';
 
-const Block = ({ strategyName, image, score, cryptoLogo, onClick }) => {
+const Block = ({ strategyName, image, score, cryptoLogo, buyAssetState, underlayingAssetState }) => {
+  const {selectedBuyAsset, setSelectedBuyAsset} = buyAssetState;
+  const {selectedUnderlayingAsset, setSelectedUnderlayingAsset} = underlayingAssetState;
+
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedAsset, setSelectedAsset] = useState("");
+  
   const [orderPrice, setOrderPrice] = useState("");
 
   const handleAssetChange = (event) => {
-    setSelectedAsset(event.target.value);
+    setSelectedBuyAsset(event.target.value);
   };
 
   const handlePriceChange = (event) => {
@@ -44,7 +47,7 @@ const Block = ({ strategyName, image, score, cryptoLogo, onClick }) => {
             <div className="modal-body">
             <div className="modal-form">
                 <label>Asset to buy:</label>
-                <select value={selectedAsset} onChange={handleAssetChange}>
+                <select value={selectedBuyAsset} onChange={handleAssetChange}>
                   <option value="">--Please choose an asset--</option>
                   <option value="ETH">ETH</option>
                   <option value="wBTC">wBTC</option>
@@ -63,9 +66,9 @@ const Block = ({ strategyName, image, score, cryptoLogo, onClick }) => {
             {/* <div className="modal-image-wrapper">
                 <img className="modal-image" src={image} alt={strategyName} />
             </div> */}
-            {selectedAsset && orderPrice && (
+            {selectedBuyAsset && orderPrice && (
                 <p className="modal-strategyName">
-                    Your order will get yield on {strategyName} waitting {selectedAsset} price go down to {orderPrice} 
+                    Your order will get yield on {strategyName} waitting {selectedBuyAsset} price go down to {orderPrice} 
                     <img className="modal-logo" src={cryptoLogo} />
                 </p>)
             }

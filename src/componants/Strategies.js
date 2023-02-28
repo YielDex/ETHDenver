@@ -69,7 +69,9 @@ const generateData = (count) => {
 };
 
 
-export default function Strategies({ selectedBuyAsset, selectedUnderlayingAsset}) {
+export default function Strategies({ buyAssetState, underlayingAssetState}) {
+
+  const { selectedUnderlayingAsset } = underlayingAssetState;
 
   let blocks = generateData(10);
 
@@ -92,6 +94,8 @@ export default function Strategies({ selectedBuyAsset, selectedUnderlayingAsset}
                 image={item.image}
                 score={item.score}
                 cryptoLogo={item.cryptoLogo}
+                buyAssetState={buyAssetState}
+                underlayingAssetState={underlayingAssetState}
               />
             )
           )

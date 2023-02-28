@@ -62,9 +62,10 @@ const App = () => {
           underlayingAssetState={{selectedUnderlayingAsset, setSelectedUnderlayingAsset}}
           buyAssetState={{selectedBuyAsset, setSelectedBuyAsset}}
         />
-        {page === 'strategies' && <Strategies 
-          selectedBuyAsset={selectedBuyAsset}
-          selectedUnderlayingAsset={selectedUnderlayingAsset} />}
+        {page === 'strategies' && <Strategies
+          underlayingAssetState={{selectedUnderlayingAsset, setSelectedUnderlayingAsset}}
+          buyAssetState={{selectedBuyAsset, setSelectedBuyAsset}}
+        />}
       </div>
     </>
     
