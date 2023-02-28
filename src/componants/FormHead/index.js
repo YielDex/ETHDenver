@@ -1,12 +1,13 @@
 import { useState } from "react";
 import "./styles.css";
 
-const FormHead = () => {
-  const [selectedAsset, setSelectedAsset] = useState("");
-  const [selectedUnderlayingAsset, setSelectedUnderlayingAsset] = useState("");
+const FormHead = ({underlayingAssetState, buyAssetState}) => {
+  
+  const {selectedBuyAsset, setSelectedBuyAsset} = buyAssetState;
+  const {selectedUnderlayingAsset, setSelectedUnderlayingAsset} = underlayingAssetState;
 
   const handleAssetChange = (event) => {
-    setSelectedAsset(event.target.value);
+    setSelectedBuyAsset(event.target.value);
   };
 
   const handleUnderlayingAssetChange = (event) => {
@@ -17,7 +18,7 @@ const FormHead = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("Selected asset:", selectedAsset);
+    console.log("Selected asset:", selectedBuyAsset);
   };
 
   return (
@@ -28,7 +29,7 @@ const FormHead = () => {
           className="form-control"
           name="asset"
           id="targetbuyAsset"
-          value={selectedAsset}
+          value={selectedBuyAsset}
           onChange={handleAssetChange}
         >
           <option value="">Select an asset</option>

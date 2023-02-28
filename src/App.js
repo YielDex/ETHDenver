@@ -36,6 +36,8 @@ const config = {
 const App = () => {
 
   const [page, setPage] = useState('strategies');
+  const [selectedBuyAsset, setSelectedBuyAsset] = useState("");
+  const [selectedUnderlayingAsset, setSelectedUnderlayingAsset] = useState("");
 
   const { account, isReady } = useAccount();
   const web3Polygon = useWeb3Polygon();
@@ -56,8 +58,13 @@ const App = () => {
         <div className="flex-row">
             <p className="text-white">{shortenString(account.address)}</p> <Web3Button/><br />
         </div>
-        <FormHead />
-        {page === 'strategies' && <Strategies />}
+        <FormHead
+          underlayingAssetState={{selectedUnderlayingAsset, setSelectedUnderlayingAsset}}
+          buyAssetState={{selectedBuyAsset, setSelectedBuyAsset}}
+        />
+        {page === 'strategies' && <Strategies 
+          selectedBuyAsset={selectedBuyAsset}
+          selectedUnderlayingAsset={selectedUnderlayingAsset} />}
       </div>
     </>
     
