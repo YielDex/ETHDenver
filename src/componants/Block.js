@@ -24,6 +24,8 @@ const Block = ({ strategyName, image, score, cryptoLogo, buyAssetState, underlay
     setIsModalOpen(true);
   };
 
+  const currentOraclePrice = ''
+
   return (
     <>
       <div className="block" onClick={handleModalOpen}>
@@ -63,9 +65,9 @@ const Block = ({ strategyName, image, score, cryptoLogo, buyAssetState, underlay
                   Valider
                 </button>
             </div>
-            {/* <div className="modal-image-wrapper">
-                <img className="modal-image" src={image} alt={strategyName} />
-            </div> */}
+            <div className="modal-right">
+              <p>Price: {currentOraclePrice}</p>
+            </div>
             {selectedBuyAsset && orderPrice && (
                 <p className="modal-strategyName">
                     Your order will get yield on {strategyName} waitting {selectedBuyAsset} price go down to {orderPrice} 

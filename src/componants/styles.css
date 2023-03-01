@@ -101,14 +101,8 @@ h1 {
   align-items: center;
 }
 
-.modal-image-wrapper {
+.modal-right {
   width: 50%;
-}
-
-.modal-image {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
 }
 
 .modal-title {
