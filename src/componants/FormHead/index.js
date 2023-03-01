@@ -38,7 +38,7 @@ const FormHead = ({underlayingAssetState, buyAssetState}) => {
         </select>
       </div>
       <div className="form-group">
-        <label htmlFor="targetbyAsset">Target Buy Asset:</label>
+        <label htmlFor="targetbyAsset">Asset used to buy:</label>
         <select
           className="form-control"
           name="asset"
