@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import './PriceOracle'
 
 const Block = ({ strategyName, image, score, cryptoLogo, buyAssetState, underlayingAssetState }) => {
   const {selectedBuyAsset, setSelectedBuyAsset} = buyAssetState;
