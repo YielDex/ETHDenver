@@ -83,7 +83,9 @@ export default function Strategies({ buyAssetState, underlayingAssetState}) {
 
   return (
     <div className="Strategies">
-      <h1>Blocs avec titre, image et score</h1>
+      <h1>
+        Available Strategies
+      </h1>
       <div className="blocks">
         {
           blocks.map(
