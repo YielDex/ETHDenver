@@ -30,6 +30,8 @@ contract OrderExecutor is OpsReady {
     }
 
     function checker(uint orderNonce) external view returns (bool canExec, bytes memory execPayload) {
+        // We need to check the liquidity
+        // require(liquidity is okay)
         canExec = orderBook.getOrder(orderNonce).price == price; // The condition that needs to be true for the task to be executed, you can filter the condition with the orderId
         execPayload = abi.encodeCall(OrderExecutor.executeOrder, orderNonce); // The function that you want to call on the contract
     }

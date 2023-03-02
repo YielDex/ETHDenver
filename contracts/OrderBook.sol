@@ -4,7 +4,7 @@ pragma solidity ^0.8.19;
 import "./Types.sol";
 import "./OrderExecutor.sol";
 import "./OpsTaskCreator.sol";
-import './LendingVault.sol';
+import './IERC4626.sol';
 
 struct OrderDatas {
     address user;
@@ -21,14 +21,14 @@ contract OrderBook is OpsTaskCreator {
     uint orderNonce;
     address public admin;
     OrderExecutor public orderExecutor;
-    LendingVault public lendingVault;
+    IERC4626 public lendingVault;
     event construct(string, address);
 
     constructor() OpsTaskCreator(0xc1C6805B857Bef1f412519C4A842522431aFed39, address(this)) {
         emit construct("address(ops)", address(ops));
         orderExecutor = new OrderExecutor(address(ops), 0x08f6dDE16166F06e1d486749452dc3A44f175456);
         // we create new "LendingVault" contract here
-        lendingVault = new LendingVault();
+        //lendingVault = IERC4626(address);
         admin = msg.sender;
     }
 

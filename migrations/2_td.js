@@ -9,7 +9,7 @@ module.exports = (deployer, network, accounts) => {
 		OrderBook = await OrderBook.new();
     console.log("OrderBook address: " + OrderBook.address);
 		
-
+    
     });
 };
 

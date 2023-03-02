@@ -11,7 +11,7 @@ import "./IERC20Metadata.sol";
  *
  * _Available since v4.7._
  */
-interface IERC4626 is IERC20Metadata {
+interface IERC4626 is IERC20, IERC20Metadata {
     event Deposit(address indexed sender, address indexed owner, uint256 assets, uint256 shares);
 
     event Withdraw(
