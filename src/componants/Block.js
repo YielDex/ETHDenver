@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { FaCog } from 'react-icons/fa';
 
 const Block = ({ strategyName, image, score, cryptoLogo, buyAssetState, underlayingAssetState }) => {
   const {selectedBuyAsset, setSelectedBuyAsset} = buyAssetState;
@@ -7,6 +8,11 @@ const Block = ({ strategyName, image, score, cryptoLogo, buyAssetState, underlay
   const [isModalOpen, setIsModalOpen] = useState(false);
   
   const [orderPrice, setOrderPrice] = useState("");
+
+  const [maxSlipage, setMaxSlipage] = useState({
+    value: 0.5,
+    show: false,
+  });
 
   const handleAssetChange = (event) => {
     setSelectedBuyAsset(event.target.value);
@@ -22,6 +28,13 @@ const Block = ({ strategyName, image, score, cryptoLogo, buyAssetState, underlay
 
   const handleModalOpen = () => {
     setIsModalOpen(true);
+  };
+
+  const showmaxSlipage = () => {
+    setMaxSlipage({
+      ...maxSlipage,
+      show: !maxSlipage.show,
+    });
   };
 
   return (
@@ -54,11 +67,40 @@ const Block = ({ strategyName, image, score, cryptoLogo, buyAssetState, underlay
                   <option value="Matic">Matic</option>
                 </select>
                 <label>Order price: </label>
-                <input
-                  type="number"
-                  value={orderPrice}
-                  onChange={handlePriceChange}
-                />
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  <input
+                    style={{ width: "90%" }}
+                    type="number"
+                    value={orderPrice}
+                    onChange={handlePriceChange}
+                  />
+                  <button
+                    style={{ width: "10%", border: "none", backgroundColor: 'transparent'}}
+                  >
+                    <FaCog style={{cursor: 'pointer'}} onClick={showmaxSlipage}/>
+                    
+                  </button>
+                </div>
+                {maxSlipage.show && (
+                  <div>
+                    <label>max slipage: </label>
+                    <input
+                      type="number"
+                      value={maxSlipage.value}
+                      onChange={(e) => setMaxSlipage({value: e.target.value, show: true})}
+                      style={{ width: "50px" }}
+                    />
+
+                    <i>%</i>
+                  </div>
+                )}
+                
                 <button className="modal-btn" onClick={handleModalClose}>
                   Valider
                 </button>
