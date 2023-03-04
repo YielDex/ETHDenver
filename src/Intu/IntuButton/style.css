@@ -1,0 +1,9 @@
+.btn-intu{
+    background-color: rgba(139, 206, 193, 0.7);
+    border-color: rgba(139, 206, 193, 0.7);
+    cursor: pointer;
+}
+.btn-intu:hover{
+    background-color: rgba(139, 206, 193, 0.9);
+    border-color: rgba(139, 206, 193, 0.9);
+}

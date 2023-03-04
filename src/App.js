@@ -24,8 +24,7 @@ import FormHead from './componants/FormHead';
 
 import Strategies from './componants/Strategies';
 
-import { IntuABI } from './Intu/ABI';
-import { ethers } from 'ethers';
+import IntuButton from './Intu/IntuButton';
 
 // const config = {
 //   projectId: '1bd4139fcba9da0ebb55e2d5ffa1d12d',
@@ -102,27 +101,6 @@ const Home = () => {
   useEffect(() => {
     if (isConnected) {
       console.log('account', address);
-
-      (async () => {
-        const web3Provider = new ethers.providers.Web3Provider(window.ethereum);
-        const signer = web3Provider.getSigner();
-        const CONTRACT_ADDRESS = '0x4eA8A6DfC72A458F8892e81B785eec44093794BD'; // Goerli
-        const INTUContract = await new ethers.Contract(CONTRACT_ADDRESS, IntuABI, signer);
-
-        const result = await INTUContract.getUserVaults()
-        console.log({result})
-
-        console.log(parseInt(result[0].toString()))
-
-        const vaultId = parseInt(result[0].toString())
-
-        const vaultInfo = await INTUContract.getVaultInfo(vaultId)
-
-        console.log({vaultInfo})
-
-
-
-      })()
     }
   }, [isConnected, address])
 
@@ -149,6 +127,7 @@ const Home = () => {
       <div className="flex-row">
           { isConnected && <p className="text-white">{shortenString(address)}</p> }
           <Web3Button/><br />
+          <IntuButton/>
       </div>
       <FormHead
         underlayingAssetState={{selectedUnderlayingAsset, setSelectedUnderlayingAsset}}
