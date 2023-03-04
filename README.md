@@ -1,3 +1,9 @@
+# Background
+
+Currently in DeFi, users need to choose between 2 possibility:
+- 1. Placing limit order on DEX or Agrégator: as UniSwap, Quickswap or 1inch
+- 2. Put his asset on yield strategy sush as Yearn, Beefy or Aave
+
 # Project purpose
 
 [ Project Name ] is a DeFi protocol that enable you to place limit order on Dex and Agregator while continuing to get yield on your deposit.
