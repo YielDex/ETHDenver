@@ -31,7 +31,7 @@ module.exports = (deployer, _network, _accounts) => {
 
     // Funding OrderExecutor
     await OrderExecutor.send("150000000000000000");
-
+/*
     // Setting up USDC and approve contract for order creation
     //USDC = await IERC20.at(env.parsed.USDC);
     DAI = await IERC20.at(env.parsed.DAI);

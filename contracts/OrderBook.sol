@@ -8,8 +8,8 @@ import './LendingVault.sol';
 
 struct OrderDatas {
     address user;
-    uint256 price;
-    uint256 amount;
+    int256 price;
+    int256 amount;
     address tokenIn;
     address tokenOut;
     bytes32 orderId;
@@ -17,12 +17,12 @@ struct OrderDatas {
 }
 
 contract OrderBook is OpsTaskCreator {
-    mapping (uint => OrderDatas) private orders; // returns order data
-    uint private orderNonce;
+    mapping (int => OrderDatas) private orders; // returns order data
+    int private orderNonce;
     address private admin;
     OrderExecutor private orderExecutor;
     LendingVault private lendingVault;
-    event orderCreated(string, uint256);
+    event orderCreated(string, int256);
 
     modifier onlyAdmin {
         require(msg.sender == admin, "Not allowed address.");
@@ -41,11 +41,11 @@ contract OrderBook is OpsTaskCreator {
         lendingVault = LendingVault(_lendingVaultAddress);
     } 
 
-    function createOrder(uint price, uint amount, address _tokenIn, address tokenOut) external returns (uint) {
+    function createOrder(int price, int amount, address _tokenIn, address tokenOut) external returns (int) {
         IERC20 TokenIn = IERC20(_tokenIn);
         
         // The user needs to approve this contract for the appropriate amount
-        TokenIn.transferFrom(msg.sender, address(this), amount);
+        TokenIn.transferFrom(msg.sender, address(this), uint256(amount));
 
         bytes memory execData = abi.encodeCall(orderExecutor.executeOrder, (orderNonce));
 
@@ -72,7 +72,7 @@ contract OrderBook is OpsTaskCreator {
         orders[orderNonce] = OrderDatas(msg.sender, price, amount, _tokenIn, tokenOut, orderId, false);
 
         // Transfer tokens to the vault
-        TokenIn.transfer(address(lendingVault), amount); // giving the money to the lending vault
+        TokenIn.transfer(address(lendingVault), uint256(amount)); // giving the money to the lending vault
         
         lendingVault.deposit(_tokenIn, amount, orderNonce); // depositing liquidity into the vault
 
@@ -83,16 +83,16 @@ contract OrderBook is OpsTaskCreator {
         return orderNonce;
     }
 
-    function cancelOrder(uint _orderNonce) external onlyAdmin {
+    function cancelOrder(int _orderNonce) external onlyAdmin {
         ops.cancelTask(orders[_orderNonce].orderId);
     }
     
-    function setExecuted(uint _orderNonce) external {
+    function setExecuted(int _orderNonce) external {
         require(msg.sender == address(orderExecutor), "Only the executor can set the order as executed");
         orders[_orderNonce].isExecuted = true;
     }
 
-    function getOrder(uint _orderNonce) public view returns (OrderDatas memory) {
+    function getOrder(int _orderNonce) public view returns (OrderDatas memory) {
         return orders[_orderNonce];
     }
 

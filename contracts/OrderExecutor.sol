@@ -9,7 +9,7 @@ import "./oracles/chainlink/interface/AggregatorV3Interface.sol";
 
 contract OrderExecutor is OpsReady {
 
-    uint public price; // temporary, testing purposes only
+    int256 public price; // temporary, testing purposes only
     address private deployer;
 
     OrderBook private immutable orderBook;
@@ -17,7 +17,7 @@ contract OrderExecutor is OpsReady {
     LendingVault private lendingVault;
     AggregatorV3Interface internal priceFeed;
 
-    event OrderDone(string, uint256);
+    event OrderDone(string, int256);
 
     modifier onlyDeployer {
         require(msg.sender == deployer, "Not allowed address.");
@@ -32,7 +32,7 @@ contract OrderExecutor is OpsReady {
         priceFeed = AggregatorV3Interface(_linkFeedAddress);
     }
 
-    function setPrice(uint _price) public onlyDeployer {
+    function setPrice(int _price) public onlyDeployer {
         price = _price;
     }
 
@@ -42,12 +42,12 @@ contract OrderExecutor is OpsReady {
         lendingVault = LendingVault(_lendingVault);
     }
 
-    function executeOrder(uint orderNonce) external onlyDedicatedMsgSender {
+    function executeOrder(int orderNonce) external onlyDedicatedMsgSender {
         // execute order with orderNonce here
-        uint256 amountWithdrawed = lendingVault.withdraw(orderBook.getOrder(orderNonce).tokenIn, orderNonce);
+        int256 amountWithdrawed = lendingVault.withdraw(orderBook.getOrder(orderNonce).tokenIn, orderNonce);
 
         // Approving the appropriate amount that uniswap is gonna take on order to make the swap
-        IERC20(orderBook.getOrder(0).tokenIn).approve(address(swapRouter), amountWithdrawed);
+        IERC20(orderBook.getOrder(0).tokenIn).approve(address(swapRouter), uint256(amountWithdrawed));
 
         (uint256 fee, address feeToken) = _getFeeDetails();
         // Here we need to verify gasfees with an oracle (like chainlink)
@@ -64,7 +64,7 @@ contract OrderExecutor is OpsReady {
                 fee: 3000, // For this example, we will set the pool fee to 0.3%.
                 recipient: orderBook.getOrder(orderNonce).user,
                 deadline: block.timestamp,
-                amountIn: amountWithdrawed,
+                amountIn: uint256(amountWithdrawed),
                 amountOutMinimum: 0, // NOT IN PRODUCTION
                 sqrtPriceLimitX96: 0 // NOT IN PRODUCTION
             });
@@ -75,11 +75,18 @@ contract OrderExecutor is OpsReady {
         orderBook.setExecuted(orderNonce);
         emit OrderDone("order_executed", orderNonce);
         
-        _transfer(fee, feeToken);
+        _transfer(uint256(fee), feeToken);
     }
 
-    function checker(uint orderNonce) external view returns (bool canExec, bytes memory execPayload) {
-        canExec = orderBook.getOrder(orderNonce).price == price; // The condition that needs to be true for the task to be executed, you can filter the condition with the orderId
+    function checker(int orderNonce) external view returns (bool canExec, bytes memory execPayload) {
+        // In a real situation, we should get the price from the aggregator (or here from uniswap) + an oracle to confirm the price
+        // (we could even ask to the user if he/she wants the oracle confirmation) 
+        // uint8 decimals;
+        // (decimals, ) = getLatestWethPrice(); // Not useful if the value is in the correct format
+        int256 oraclePrice;
+        (oraclePrice, ) = getLatestWethPrice();
+        bool condition = price <= oraclePrice;
+        canExec = /*condition*/ orderBook.getOrder(orderNonce).price == price; // The condition that needs to be true for the task to be executed, you can filter the condition with the orderId
         execPayload = abi.encodeCall(OrderExecutor.executeOrder, orderNonce); // The function that you want to call on the contract
     }
 
@@ -88,18 +95,13 @@ contract OrderExecutor is OpsReady {
         payable(msg.sender).transfer(address(this).balance);
     }
 
-    function getLatestWethPrice() external view returns (int) {
-        (
-            uint80 roundId,
-            int256 price,
-            uint256 startedAt,
-            uint256 updatedAt,
-            uint80 answeredInRound
-        ) = priceFeed.latestRoundData();
-        return price;
+    function getLatestWethPrice() public view returns (int, uint8) {
+        (, int256 _price, , , ) = priceFeed.latestRoundData();
+        uint8 decimals = priceFeed.decimals();
+        return (_price, decimals);
     }
 
-    // Needs to be funded
+    // Needs to be funded ?
     /*
     function getEthSpotPrice() external view returns(uint256) {
         bytes memory _queryData = abi.encode("SpotPrice", abi.encode("eth", "usd"));

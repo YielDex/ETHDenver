@@ -26,9 +26,9 @@ contract LendingVault {
 
     // In the future, there will be a mapping for each strategies for one asset rather than this one
     mapping(ERC20 => ERC4626) private erc4626s;
-    mapping(uint256 => uint256) private orderShares;
+    mapping(int256 => int256) private orderShares;
     
-    event Shares(uint256 shares);
+    event Shares(int256 shares);
 
     constructor(address _iPoolAddressesProviderAddress, address _temporaryTokenAddress, address _orderBookAddress) {
         orderBookAddress = _orderBookAddress;
@@ -42,16 +42,16 @@ contract LendingVault {
         erc4626s[temporaryToken] = aaveFactory.createERC4626(temporaryToken);
     }
 
-    function deposit(address _tokenAddress, uint256 _amount, uint256 orderNonce) external onlyOrderBook {
-        ERC20(_tokenAddress).approve(address(erc4626s[ERC20(_tokenAddress)]), _amount);
-        orderShares[orderNonce] = erc4626s[ERC20(_tokenAddress)].deposit(_amount, address(this));
+    function deposit(address _tokenAddress, int256 _amount, int256 orderNonce) external onlyOrderBook {
+        ERC20(_tokenAddress).approve(address(erc4626s[ERC20(_tokenAddress)]), uint256(_amount));
+        orderShares[orderNonce] = int256(erc4626s[ERC20(_tokenAddress)].deposit(uint256(_amount), address(this)));
     }
 
-    function withdraw(address _tokenAddress, uint256 _orderNonce) external onlyOrderExecutor returns (uint256) {
-        erc4626s[ERC20(_tokenAddress)].approve(address(erc4626s[ERC20(_tokenAddress)]), orderShares[_orderNonce]);
-        uint256 amount = erc4626s[ERC20(_tokenAddress)].redeem(orderShares[_orderNonce], address(this), address(this));
+    function withdraw(address _tokenAddress, int256 _orderNonce) external onlyOrderExecutor returns (int256) {
+        erc4626s[ERC20(_tokenAddress)].approve(address(erc4626s[ERC20(_tokenAddress)]), uint256(orderShares[_orderNonce]));
+        uint256 amount = erc4626s[ERC20(_tokenAddress)].redeem(uint256(orderShares[_orderNonce]), address(this), address(this));
         ERC20(_tokenAddress).transfer(OrderBook(orderBookAddress).getExecutorAddress(), amount);
-        return amount;
+        return int256(amount);
     }
 
 }
