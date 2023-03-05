@@ -15,7 +15,7 @@ module.exports = (deployer, _network, _accounts) => {
     
     // Deploying OrderBook contract
     OrderBook = await OrderBook.new(env.parsed.Ops);
-    OrderExecutor = await OrderExecutor.new(env.parsed.Ops, OrderBook.address, env.parsed.SwapRouter);
+    OrderExecutor = await OrderExecutor.new(env.parsed.Ops, OrderBook.address, env.parsed.SwapRouter, env.parsed.TellorOracle);
     await OrderBook.setOrderExecutor(OrderExecutor.address);
 
 
