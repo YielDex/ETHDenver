@@ -43,7 +43,7 @@ contract OrderBook is OpsTaskCreator {
 
     function createOrder(uint price, uint amount, address _tokenIn, address tokenOut) external returns (uint) {
         IERC20 TokenIn = IERC20(_tokenIn);
-
+        
         // The user needs to approve this contract for the appropriate amount
         TokenIn.transferFrom(msg.sender, address(this), amount);
 
@@ -72,7 +72,8 @@ contract OrderBook is OpsTaskCreator {
         orders[orderNonce] = OrderDatas(msg.sender, price, amount, _tokenIn, tokenOut, orderId, false);
 
         // Transfer tokens to the vault
-        TokenIn.transfer(address(lendingVault), amount); // approval needed to be able to swap liquidity
+        TokenIn.transfer(address(lendingVault), amount); // giving the money to the lending vault
+        
         lendingVault.deposit(_tokenIn, amount, orderNonce); // depositing liquidity into the vault
 
         orderNonce++;

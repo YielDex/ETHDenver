@@ -38,19 +38,19 @@ contract LendingVault {
         orderExecutorAddress = OrderBook(orderBookAddress).getExecutorAddress();
 
         // testAsset that we want to include from from start
-        ERC20 usdcERC20 = ERC20(_temporaryTokenAddress);
-        erc4626s[usdcERC20] = aaveFactory.createERC4626(usdcERC20);
+        ERC20 temporaryToken = ERC20(_temporaryTokenAddress);
+        erc4626s[temporaryToken] = aaveFactory.createERC4626(temporaryToken);
     }
 
-    function deposit(address tokenAddress, uint256 _amount, uint256 orderNonce) external onlyOrderBook {
-        ERC20(tokenAddress).approve(address(erc4626s[ERC20(tokenAddress)]), _amount);
-        orderShares[orderNonce] = erc4626s[ERC20(tokenAddress)].deposit(_amount, address(this));
+    function deposit(address _tokenAddress, uint256 _amount, uint256 orderNonce) external onlyOrderBook {
+        ERC20(_tokenAddress).approve(address(erc4626s[ERC20(_tokenAddress)]), _amount);
+        orderShares[orderNonce] = erc4626s[ERC20(_tokenAddress)].deposit(_amount, address(this));
     }
 
-    function withdraw(address tokenAddress, uint256 orderNonce) external onlyOrderExecutor returns (uint256) {
-        erc4626s[ERC20(tokenAddress)].approve(address(erc4626s[ERC20(tokenAddress)]), orderShares[orderNonce]);
-        uint256 amount = erc4626s[ERC20(tokenAddress)].redeem(orderShares[orderNonce], address(this), address(this));
-        ERC20(tokenAddress).transfer(OrderBook(orderBookAddress).getExecutorAddress(), amount);
+    function withdraw(address _tokenAddress, uint256 _orderNonce) external onlyOrderExecutor returns (uint256) {
+        erc4626s[ERC20(_tokenAddress)].approve(address(erc4626s[ERC20(_tokenAddress)]), orderShares[_orderNonce]);
+        uint256 amount = erc4626s[ERC20(_tokenAddress)].redeem(orderShares[_orderNonce], address(this), address(this));
+        ERC20(_tokenAddress).transfer(OrderBook(orderBookAddress).getExecutorAddress(), amount);
         return amount;
     }
 

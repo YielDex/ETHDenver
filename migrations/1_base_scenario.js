@@ -20,7 +20,7 @@ module.exports = (deployer, _network, _accounts) => {
 
 
     // Deploying LendingVault contract
-		LendingVault = await LendingVault.new(env.parsed.IPoolAddressesProvider, env.parsed.USDC, OrderBook.address);
+		LendingVault = await LendingVault.new(env.parsed.IPoolAddressesProvider, env.parsed.DAI, OrderBook.address);
     await OrderBook.setLendingVault(LendingVault.address);
     await OrderExecutor.setLendingVault(LendingVault.address);
 
@@ -30,30 +30,31 @@ module.exports = (deployer, _network, _accounts) => {
     console.log("LendingVault address: " + LendingVault.address);
 
     // Funding OrderExecutor
-    await OrderExecutor.send("100000000000000000");
+    await OrderExecutor.send("150000000000000000");
 
     // Setting up USDC and approve contract for order creation
-    USDC = await IERC20.at(env.parsed.USDC);
-    await USDC.approve(OrderBook.address, "10000000");
+    //USDC = await IERC20.at(env.parsed.USDC);
+    DAI = await IERC20.at(env.parsed.DAI);
+    await DAI.approve(OrderBook.address, "10000000000000000000");
 
     // Get USDC balance before order
-    usdcBalance1 = await USDC.balanceOf(_accounts[0]);
+    usdcBalance1 = await DAI.balanceOf(_accounts[0]);
     usdcBalance1 = usdcBalance1.toString();
-    console.log("USDC balance before order:", usdcBalance1);
+    console.log("DAI balance before order:", usdcBalance1);
     
     // Creating the order
-    await OrderBook.createOrder("123", "10000000", env.parsed.USDC, env.parsed.USDT);
+    await OrderBook.createOrder("123", "10000000000000000000", env.parsed.DAI, env.parsed.WETH);
 
     // Force the condition to be true
     await OrderExecutor.setPrice("123");
 
     // One block waiting
-    usdcBalance3 = await USDC.balanceOf(_accounts[0]);
+    usdcBalance3 = await DAI.balanceOf(_accounts[0]);
     usdcBalance3 = usdcBalance3.toString();
     //console.log("USDC balance after redeem:", usdcBalance3);
 
     // Getting my funds back (we don't do it because at this block there is the order execution)
-    await OrderExecutor.withdraw();
+    //await OrderExecutor.withdraw();
 
     /*
     spotPrice = await OrderExecutor.getEthSpotPrice();
