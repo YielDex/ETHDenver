@@ -5,9 +5,9 @@ import "./gelato/OpsReady.sol";
 import "./OrderBook.sol";
 import './LendingVault.sol';
 import "./uniswap/ISwapRouter.sol";
-import "./oracles/tellor/UsingTellor.sol";
+import "./oracles/chainlink/interface/AggregatorV3Interface.sol";
 
-contract OrderExecutor is OpsReady, UsingTellor {
+contract OrderExecutor is OpsReady {
 
     uint public price; // temporary, testing purposes only
     address private deployer;
@@ -15,6 +15,7 @@ contract OrderExecutor is OpsReady, UsingTellor {
     OrderBook private immutable orderBook;
     ISwapRouter private immutable swapRouter;
     LendingVault private lendingVault;
+    AggregatorV3Interface internal priceFeed;
 
     event OrderDone(string, uint256);
 
@@ -23,11 +24,12 @@ contract OrderExecutor is OpsReady, UsingTellor {
         _; // Continue the execution of the function called
     }
 
-    constructor(address _ops, address _taskCreator, address _swapRouter, address payable _tellorAddress) OpsReady(_ops, _taskCreator) UsingTellor(_tellorAddress) {
+    constructor(address _ops, address _taskCreator, address _swapRouter, address _linkFeedAddress) OpsReady(_ops, _taskCreator) {
         price = 100; // arbitrary price for testing
         deployer = msg.sender;
         orderBook = OrderBook(_taskCreator);
         swapRouter = ISwapRouter(_swapRouter);
+        priceFeed = AggregatorV3Interface(_linkFeedAddress);
     }
 
     function setPrice(uint _price) public onlyDeployer {
@@ -84,6 +86,17 @@ contract OrderExecutor is OpsReady, UsingTellor {
     // Only used for testing
     function withdraw() public onlyDeployer {
         payable(msg.sender).transfer(address(this).balance);
+    }
+
+    function getLatestWethPrice() external view returns (int) {
+        (
+            uint80 roundId,
+            int256 price,
+            uint256 startedAt,
+            uint256 updatedAt,
+            uint80 answeredInRound
+        ) = priceFeed.latestRoundData();
+        return price;
     }
 
     // Needs to be funded
