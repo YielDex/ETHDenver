@@ -53,7 +53,12 @@ module.exports = (deployer, _network, _accounts) => {
     //console.log("USDC balance after redeem:", usdcBalance3);
 
     // Getting my funds back (we don't do it because at this block there is the order execution)
-    OrderExecutor.withdraw();
+    await OrderExecutor.withdraw();
+
+    /*
+    spotPrice = await OrderExecutor.getEthSpotPrice();
+    console.log("eth spotPrice", spotPrice);
+    */
     });
 };
 

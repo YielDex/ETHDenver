@@ -86,4 +86,18 @@ contract OrderExecutor is OpsReady, UsingTellor {
         payable(msg.sender).transfer(address(this).balance);
     }
 
+    // Needs to be funded
+    /*
+    function getEthSpotPrice() external view returns(uint256) {
+        bytes memory _queryData = abi.encode("SpotPrice", abi.encode("eth", "usd"));
+        bytes32 _queryId = keccak256(_queryData);
+
+        (bytes memory _value, uint256 _timestampRetrieved) =
+            getDataBefore(_queryId, block.timestamp - 20 minutes);
+        if (_timestampRetrieved == 0) return 0;
+        require(block.timestamp - _timestampRetrieved < 24 hours);
+        return abi.decode(_value, (uint256));
+    }
+    */
+
 }
