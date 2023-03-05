@@ -176,15 +176,15 @@
     "absolutePath": "project:/contracts/yield-daddy/aave-v3/external/IPool.sol",
     "exportedSymbols": {
       "IPool": [
-        6151
+        6197
       ]
     },
-    "id": 6152,
+    "id": 6198,
     "license": "AGPL-3.0",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 6081,
+        "id": 6127,
         "literals": [
           "solidity",
           "^",
@@ -201,15 +201,15 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "documentation": {
-          "id": 6082,
+          "id": 6128,
           "nodeType": "StructuredDocumentation",
           "src": "63:99:24",
           "text": " @title IPool\n @author Aave\n @notice Defines the basic interface for an Aave Pool."
         },
         "fullyImplemented": false,
-        "id": 6151,
+        "id": 6197,
         "linearizedBaseContracts": [
-          6151
+          6197
         ],
         "name": "IPool",
         "nameLocation": "173:5:24",
@@ -217,16 +217,16 @@
         "nodes": [
           {
             "canonicalName": "IPool.ReserveConfigurationMap",
-            "id": 6085,
+            "id": 6131,
             "members": [
               {
                 "constant": false,
-                "id": 6084,
+                "id": 6130,
                 "mutability": "mutable",
                 "name": "data",
                 "nameLocation": "1146:4:24",
                 "nodeType": "VariableDeclaration",
-                "scope": 6085,
+                "scope": 6131,
                 "src": "1138:12:24",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -235,7 +235,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 6083,
+                  "id": 6129,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "1138:7:24",
@@ -250,46 +250,46 @@
             "name": "ReserveConfigurationMap",
             "nameLocation": "192:23:24",
             "nodeType": "StructDefinition",
-            "scope": 6151,
+            "scope": 6197,
             "src": "185:972:24",
             "visibility": "public"
           },
           {
             "canonicalName": "IPool.ReserveData",
-            "id": 6117,
+            "id": 6163,
             "members": [
               {
                 "constant": false,
-                "id": 6088,
+                "id": 6134,
                 "mutability": "mutable",
                 "name": "configuration",
                 "nameLocation": "1216:13:24",
                 "nodeType": "VariableDeclaration",
-                "scope": 6117,
+                "scope": 6163,
                 "src": "1192:37:24",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_ReserveConfigurationMap_$6085_storage_ptr",
+                  "typeIdentifier": "t_struct$_ReserveConfigurationMap_$6131_storage_ptr",
                   "typeString": "struct IPool.ReserveConfigurationMap"
                 },
                 "typeName": {
-                  "id": 6087,
+                  "id": 6133,
                   "nodeType": "UserDefinedTypeName",
                   "pathNode": {
-                    "id": 6086,
+                    "id": 6132,
                     "name": "ReserveConfigurationMap",
                     "nameLocations": [
                       "1192:23:24"
                     ],
                     "nodeType": "IdentifierPath",
-                    "referencedDeclaration": 6085,
+                    "referencedDeclaration": 6131,
                     "src": "1192:23:24"
                   },
-                  "referencedDeclaration": 6085,
+                  "referencedDeclaration": 6131,
                   "src": "1192:23:24",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_ReserveConfigurationMap_$6085_storage_ptr",
+                    "typeIdentifier": "t_struct$_ReserveConfigurationMap_$6131_storage_ptr",
                     "typeString": "struct IPool.ReserveConfigurationMap"
                   }
                 },
@@ -297,12 +297,12 @@
               },
               {
                 "constant": false,
-                "id": 6090,
+                "id": 6136,
                 "mutability": "mutable",
                 "name": "liquidityIndex",
                 "nameLocation": "1295:14:24",
                 "nodeType": "VariableDeclaration",
-                "scope": 6117,
+                "scope": 6163,
                 "src": "1287:22:24",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -311,7 +311,7 @@
                   "typeString": "uint128"
                 },
                 "typeName": {
-                  "id": 6089,
+                  "id": 6135,
                   "name": "uint128",
                   "nodeType": "ElementaryTypeName",
                   "src": "1287:7:24",
@@ -324,12 +324,12 @@
               },
               {
                 "constant": false,
-                "id": 6092,
+                "id": 6138,
                 "mutability": "mutable",
                 "name": "currentLiquidityRate",
                 "nameLocation": "1379:20:24",
                 "nodeType": "VariableDeclaration",
-                "scope": 6117,
+                "scope": 6163,
                 "src": "1371:28:24",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -338,7 +338,7 @@
                   "typeString": "uint128"
                 },
                 "typeName": {
-                  "id": 6091,
+                  "id": 6137,
                   "name": "uint128",
                   "nodeType": "ElementaryTypeName",
                   "src": "1371:7:24",
@@ -351,12 +351,12 @@
               },
               {
                 "constant": false,
-                "id": 6094,
+                "id": 6140,
                 "mutability": "mutable",
                 "name": "variableBorrowIndex",
                 "nameLocation": "1467:19:24",
                 "nodeType": "VariableDeclaration",
-                "scope": 6117,
+                "scope": 6163,
                 "src": "1459:27:24",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -365,7 +365,7 @@
                   "typeString": "uint128"
                 },
                 "typeName": {
-                  "id": 6093,
+                  "id": 6139,
                   "name": "uint128",
                   "nodeType": "ElementaryTypeName",
                   "src": "1459:7:24",
@@ -378,12 +378,12 @@
               },
               {
                 "constant": false,
-                "id": 6096,
+                "id": 6142,
                 "mutability": "mutable",
                 "name": "currentVariableBorrowRate",
                 "nameLocation": "1565:25:24",
                 "nodeType": "VariableDeclaration",
-                "scope": 6117,
+                "scope": 6163,
                 "src": "1557:33:24",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -392,7 +392,7 @@
                   "typeString": "uint128"
                 },
                 "typeName": {
-                  "id": 6095,
+                  "id": 6141,
                   "name": "uint128",
                   "nodeType": "ElementaryTypeName",
                   "src": "1557:7:24",
@@ -405,12 +405,12 @@
               },
               {
                 "constant": false,
-                "id": 6098,
+                "id": 6144,
                 "mutability": "mutable",
                 "name": "currentStableBorrowRate",
                 "nameLocation": "1667:23:24",
                 "nodeType": "VariableDeclaration",
-                "scope": 6117,
+                "scope": 6163,
                 "src": "1659:31:24",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -419,7 +419,7 @@
                   "typeString": "uint128"
                 },
                 "typeName": {
-                  "id": 6097,
+                  "id": 6143,
                   "name": "uint128",
                   "nodeType": "ElementaryTypeName",
                   "src": "1659:7:24",
@@ -432,12 +432,12 @@
               },
               {
                 "constant": false,
-                "id": 6100,
+                "id": 6146,
                 "mutability": "mutable",
                 "name": "lastUpdateTimestamp",
                 "nameLocation": "1742:19:24",
                 "nodeType": "VariableDeclaration",
-                "scope": 6117,
+                "scope": 6163,
                 "src": "1735:26:24",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -446,7 +446,7 @@
                   "typeString": "uint40"
                 },
                 "typeName": {
-                  "id": 6099,
+                  "id": 6145,
                   "name": "uint40",
                   "nodeType": "ElementaryTypeName",
                   "src": "1735:6:24",
@@ -459,12 +459,12 @@
               },
               {
                 "constant": false,
-                "id": 6102,
+                "id": 6148,
                 "mutability": "mutable",
                 "name": "id",
                 "nameLocation": "1870:2:24",
                 "nodeType": "VariableDeclaration",
-                "scope": 6117,
+                "scope": 6163,
                 "src": "1863:9:24",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -473,7 +473,7 @@
                   "typeString": "uint16"
                 },
                 "typeName": {
-                  "id": 6101,
+                  "id": 6147,
                   "name": "uint16",
                   "nodeType": "ElementaryTypeName",
                   "src": "1863:6:24",
@@ -486,12 +486,12 @@
               },
               {
                 "constant": false,
-                "id": 6104,
+                "id": 6150,
                 "mutability": "mutable",
                 "name": "aTokenAddress",
                 "nameLocation": "1915:13:24",
                 "nodeType": "VariableDeclaration",
-                "scope": 6117,
+                "scope": 6163,
                 "src": "1907:21:24",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -500,7 +500,7 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 6103,
+                  "id": 6149,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "1907:7:24",
@@ -514,12 +514,12 @@
               },
               {
                 "constant": false,
-                "id": 6106,
+                "id": 6152,
                 "mutability": "mutable",
                 "name": "stableDebtTokenAddress",
                 "nameLocation": "1980:22:24",
                 "nodeType": "VariableDeclaration",
-                "scope": 6117,
+                "scope": 6163,
                 "src": "1972:30:24",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -528,7 +528,7 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 6105,
+                  "id": 6151,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "1972:7:24",
@@ -542,12 +542,12 @@
               },
               {
                 "constant": false,
-                "id": 6108,
+                "id": 6154,
                 "mutability": "mutable",
                 "name": "variableDebtTokenAddress",
                 "nameLocation": "2056:24:24",
                 "nodeType": "VariableDeclaration",
-                "scope": 6117,
+                "scope": 6163,
                 "src": "2048:32:24",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -556,7 +556,7 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 6107,
+                  "id": 6153,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "2048:7:24",
@@ -570,12 +570,12 @@
               },
               {
                 "constant": false,
-                "id": 6110,
+                "id": 6156,
                 "mutability": "mutable",
                 "name": "interestRateStrategyAddress",
                 "nameLocation": "2146:27:24",
                 "nodeType": "VariableDeclaration",
-                "scope": 6117,
+                "scope": 6163,
                 "src": "2138:35:24",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -584,7 +584,7 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 6109,
+                  "id": 6155,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "2138:7:24",
@@ -598,12 +598,12 @@
               },
               {
                 "constant": false,
-                "id": 6112,
+                "id": 6158,
                 "mutability": "mutable",
                 "name": "accruedToTreasury",
                 "nameLocation": "2238:17:24",
                 "nodeType": "VariableDeclaration",
-                "scope": 6117,
+                "scope": 6163,
                 "src": "2230:25:24",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -612,7 +612,7 @@
                   "typeString": "uint128"
                 },
                 "typeName": {
-                  "id": 6111,
+                  "id": 6157,
                   "name": "uint128",
                   "nodeType": "ElementaryTypeName",
                   "src": "2230:7:24",
@@ -625,12 +625,12 @@
               },
               {
                 "constant": false,
-                "id": 6114,
+                "id": 6160,
                 "mutability": "mutable",
                 "name": "unbacked",
                 "nameLocation": "2352:8:24",
                 "nodeType": "VariableDeclaration",
-                "scope": 6117,
+                "scope": 6163,
                 "src": "2344:16:24",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -639,7 +639,7 @@
                   "typeString": "uint128"
                 },
                 "typeName": {
-                  "id": 6113,
+                  "id": 6159,
                   "name": "uint128",
                   "nodeType": "ElementaryTypeName",
                   "src": "2344:7:24",
@@ -652,12 +652,12 @@
               },
               {
                 "constant": false,
-                "id": 6116,
+                "id": 6162,
                 "mutability": "mutable",
                 "name": "isolationModeTotalDebt",
                 "nameLocation": "2455:22:24",
                 "nodeType": "VariableDeclaration",
-                "scope": 6117,
+                "scope": 6163,
                 "src": "2447:30:24",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -666,7 +666,7 @@
                   "typeString": "uint128"
                 },
                 "typeName": {
-                  "id": 6115,
+                  "id": 6161,
                   "name": "uint128",
                   "nodeType": "ElementaryTypeName",
                   "src": "2447:7:24",
@@ -681,19 +681,19 @@
             "name": "ReserveData",
             "nameLocation": "1170:11:24",
             "nodeType": "StructDefinition",
-            "scope": 6151,
+            "scope": 6197,
             "src": "1163:1321:24",
             "visibility": "public"
           },
           {
             "documentation": {
-              "id": 6118,
+              "id": 6164,
               "nodeType": "StructuredDocumentation",
               "src": "2490:733:24",
               "text": " @notice Supplies an `amount` of underlying asset into the reserve, receiving in return overlying aTokens.\n - E.g. User supplies 100 USDC and gets in return 100 aUSDC\n @param asset The address of the underlying asset to supply\n @param amount The amount to be supplied\n @param onBehalfOf The address that will receive the aTokens, same as msg.sender if the user\n wants to receive them on his own wallet, or a different address if the beneficiary of aTokens\n is a different wallet\n @param referralCode Code used to register the integrator originating the operation, for potential rewards.\n 0 if the action is executed directly by the user, without any middle-man"
             },
             "functionSelector": "617ba037",
-            "id": 6129,
+            "id": 6175,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -701,17 +701,17 @@
             "nameLocation": "3237:6:24",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6127,
+              "id": 6173,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6120,
+                  "id": 6166,
                   "mutability": "mutable",
                   "name": "asset",
                   "nameLocation": "3252:5:24",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6129,
+                  "scope": 6175,
                   "src": "3244:13:24",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -720,7 +720,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 6119,
+                    "id": 6165,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "3244:7:24",
@@ -734,12 +734,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 6122,
+                  "id": 6168,
                   "mutability": "mutable",
                   "name": "amount",
                   "nameLocation": "3267:6:24",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6129,
+                  "scope": 6175,
                   "src": "3259:14:24",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -748,7 +748,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6121,
+                    "id": 6167,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "3259:7:24",
@@ -761,12 +761,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 6124,
+                  "id": 6170,
                   "mutability": "mutable",
                   "name": "onBehalfOf",
                   "nameLocation": "3283:10:24",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6129,
+                  "scope": 6175,
                   "src": "3275:18:24",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -775,7 +775,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 6123,
+                    "id": 6169,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "3275:7:24",
@@ -789,12 +789,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 6126,
+                  "id": 6172,
                   "mutability": "mutable",
                   "name": "referralCode",
                   "nameLocation": "3302:12:24",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6129,
+                  "scope": 6175,
                   "src": "3295:19:24",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -803,7 +803,7 @@
                     "typeString": "uint16"
                   },
                   "typeName": {
-                    "id": 6125,
+                    "id": 6171,
                     "name": "uint16",
                     "nodeType": "ElementaryTypeName",
                     "src": "3295:6:24",
@@ -818,12 +818,12 @@
               "src": "3243:72:24"
             },
             "returnParameters": {
-              "id": 6128,
+              "id": 6174,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "3324:0:24"
             },
-            "scope": 6151,
+            "scope": 6197,
             "src": "3228:97:24",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -831,13 +831,13 @@
           },
           {
             "documentation": {
-              "id": 6130,
+              "id": 6176,
               "nodeType": "StructuredDocumentation",
               "src": "3331:692:24",
               "text": " @notice Withdraws an `amount` of underlying asset from the reserve, burning the equivalent aTokens owned\n E.g. User has 100 aUSDC, calls withdraw() and receives 100 USDC, burning the 100 aUSDC\n @param asset The address of the underlying asset to withdraw\n @param amount The underlying amount to be withdrawn\n - Send the value type(uint256).max in order to withdraw the whole aToken balance\n @param to The address that will receive the underlying, same as msg.sender if the user\n wants to receive it on his own wallet, or a different address if the beneficiary is a\n different wallet\n @return The final amount withdrawn"
             },
             "functionSelector": "69328dec",
-            "id": 6141,
+            "id": 6187,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -845,17 +845,17 @@
             "nameLocation": "4037:8:24",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6137,
+              "id": 6183,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6132,
+                  "id": 6178,
                   "mutability": "mutable",
                   "name": "asset",
                   "nameLocation": "4054:5:24",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6141,
+                  "scope": 6187,
                   "src": "4046:13:24",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -864,7 +864,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 6131,
+                    "id": 6177,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "4046:7:24",
@@ -878,12 +878,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 6134,
+                  "id": 6180,
                   "mutability": "mutable",
                   "name": "amount",
                   "nameLocation": "4069:6:24",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6141,
+                  "scope": 6187,
                   "src": "4061:14:24",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -892,7 +892,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6133,
+                    "id": 6179,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "4061:7:24",
@@ -905,12 +905,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 6136,
+                  "id": 6182,
                   "mutability": "mutable",
                   "name": "to",
                   "nameLocation": "4085:2:24",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6141,
+                  "scope": 6187,
                   "src": "4077:10:24",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -919,7 +919,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 6135,
+                    "id": 6181,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "4077:7:24",
@@ -935,17 +935,17 @@
               "src": "4045:43:24"
             },
             "returnParameters": {
-              "id": 6140,
+              "id": 6186,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6139,
+                  "id": 6185,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6141,
+                  "scope": 6187,
                   "src": "4107:7:24",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -954,7 +954,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 6138,
+                    "id": 6184,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "4107:7:24",
@@ -968,7 +968,7 @@
               ],
               "src": "4106:9:24"
             },
-            "scope": 6151,
+            "scope": 6197,
             "src": "4028:88:24",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -976,13 +976,13 @@
           },
           {
             "documentation": {
-              "id": 6142,
+              "id": 6188,
               "nodeType": "StructuredDocumentation",
               "src": "4122:218:24",
               "text": " @notice Returns the state and configuration of the reserve\n @param asset The address of the underlying asset of the reserve\n @return The state and configuration data of the reserve"
             },
             "functionSelector": "35ea6a75",
-            "id": 6150,
+            "id": 6196,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -990,17 +990,17 @@
             "nameLocation": "4354:14:24",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 6145,
+              "id": 6191,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6144,
+                  "id": 6190,
                   "mutability": "mutable",
                   "name": "asset",
                   "nameLocation": "4377:5:24",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6150,
+                  "scope": 6196,
                   "src": "4369:13:24",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1009,7 +1009,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 6143,
+                    "id": 6189,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "4369:7:24",
@@ -1025,41 +1025,41 @@
               "src": "4368:15:24"
             },
             "returnParameters": {
-              "id": 6149,
+              "id": 6195,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 6148,
+                  "id": 6194,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 6150,
+                  "scope": 6196,
                   "src": "4407:18:24",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_ReserveData_$6117_memory_ptr",
+                    "typeIdentifier": "t_struct$_ReserveData_$6163_memory_ptr",
                     "typeString": "struct IPool.ReserveData"
                   },
                   "typeName": {
-                    "id": 6147,
+                    "id": 6193,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 6146,
+                      "id": 6192,
                       "name": "ReserveData",
                       "nameLocations": [
                         "4407:11:24"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 6117,
+                      "referencedDeclaration": 6163,
                       "src": "4407:11:24"
                     },
-                    "referencedDeclaration": 6117,
+                    "referencedDeclaration": 6163,
                     "src": "4407:11:24",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_ReserveData_$6117_storage_ptr",
+                      "typeIdentifier": "t_struct$_ReserveData_$6163_storage_ptr",
                       "typeString": "struct IPool.ReserveData"
                     }
                   },
@@ -1068,14 +1068,14 @@
               ],
               "src": "4406:20:24"
             },
-            "scope": 6151,
+            "scope": 6197,
             "src": "4345:82:24",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 6152,
+        "scope": 6198,
         "src": "163:4266:24",
         "usedErrors": []
       }
@@ -1088,7 +1088,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.11",
-  "updatedAt": "2023-03-05T09:52:00.276Z",
+  "updatedAt": "2023-03-05T20:00:42.716Z",
   "devdoc": {
     "author": "Aave",
     "kind": "dev",

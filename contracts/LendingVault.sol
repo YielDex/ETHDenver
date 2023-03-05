@@ -30,21 +30,23 @@ contract LendingVault {
     
     event Shares(uint256 shares);
 
-    constructor(address _iPoolAddressesProviderAddress, address _temporaryTokenAddress, address _orderBookAddress) {
+    constructor(address _iPoolAddressesProviderAddress, address _orderBookAddress) {
         orderBookAddress = _orderBookAddress;
         aavePoolAddressesProvider = IPoolAddressesProvider(_iPoolAddressesProviderAddress);
         aavePool = IPool(aavePoolAddressesProvider.getPool());
         aaveFactory = new AaveV3ERC4626Factory(aavePool);
         orderExecutorAddress = OrderBook(orderBookAddress).getExecutorAddress();
-
-        // testAsset that we want to include from from start
-        ERC20 usdcERC20 = ERC20(_temporaryTokenAddress);
-        erc4626s[usdcERC20] = aaveFactory.createERC4626(usdcERC20);
     }
 
     function deposit(address tokenAddress, uint256 _amount, uint256 orderNonce) external onlyOrderBook {
-        ERC20(tokenAddress).approve(address(erc4626s[ERC20(tokenAddress)]), _amount);
-        orderShares[orderNonce] = erc4626s[ERC20(tokenAddress)].deposit(_amount, address(this));
+        ERC20 depositToken = ERC20(tokenAddress);
+        depositToken.approve(address(erc4626s[ERC20(tokenAddress)]), _amount);
+        // If asset vault doesn't exist create it
+        if (erc4626s[depositToken] == address(0)) {
+            erc4626s[depositToken] = aaveFactory.createERC4626(depositToken);
+        }
+
+        orderShares[orderNonce] = erc4626s[depositToken].deposit(_amount, address(this));
     }
 
     function withdraw(address tokenAddress, uint256 orderNonce) external onlyOrderExecutor returns (uint256) {

@@ -15,15 +15,15 @@
     "absolutePath": "project:/contracts/solmate/utils/Bytes32AddressLib.sol",
     "exportedSymbols": {
       "Bytes32AddressLib": [
-        4642
+        4688
       ]
     },
-    "id": 4643,
+    "id": 4689,
     "license": "AGPL-3.0-only",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 4605,
+        "id": 4651,
         "literals": [
           "solidity",
           ">=",
@@ -40,15 +40,15 @@
         "contractDependencies": [],
         "contractKind": "library",
         "documentation": {
-          "id": 4606,
+          "id": 4652,
           "nodeType": "StructuredDocumentation",
           "src": "69:180:16",
           "text": "@notice Library for converting between addresses and bytes32 values.\n @author Solmate (https://github.com/transmissions11/solmate/blob/main/src/utils/Bytes32AddressLib.sol)"
         },
         "fullyImplemented": true,
-        "id": 4642,
+        "id": 4688,
         "linearizedBaseContracts": [
-          4642
+          4688
         ],
         "name": "Bytes32AddressLib",
         "nameLocation": "257:17:16",
@@ -56,7 +56,7 @@
         "nodes": [
           {
             "body": {
-              "id": 4624,
+              "id": 4670,
               "nodeType": "Block",
               "src": "358:61:16",
               "statements": [
@@ -68,11 +68,11 @@
                           {
                             "arguments": [
                               {
-                                "id": 4619,
+                                "id": 4665,
                                 "name": "bytesValue",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 4608,
+                                "referencedDeclaration": 4654,
                                 "src": "399:10:16",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_bytes32",
@@ -87,7 +87,7 @@
                                   "typeString": "bytes32"
                                 }
                               ],
-                              "id": 4618,
+                              "id": 4664,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": true,
@@ -99,14 +99,14 @@
                                 "typeString": "type(uint256)"
                               },
                               "typeName": {
-                                "id": 4617,
+                                "id": 4663,
                                 "name": "uint256",
                                 "nodeType": "ElementaryTypeName",
                                 "src": "391:7:16",
                                 "typeDescriptions": {}
                               }
                             },
-                            "id": 4620,
+                            "id": 4666,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
@@ -130,7 +130,7 @@
                               "typeString": "uint256"
                             }
                           ],
-                          "id": 4616,
+                          "id": 4662,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -142,14 +142,14 @@
                             "typeString": "type(uint160)"
                           },
                           "typeName": {
-                            "id": 4615,
+                            "id": 4661,
                             "name": "uint160",
                             "nodeType": "ElementaryTypeName",
                             "src": "383:7:16",
                             "typeDescriptions": {}
                           }
                         },
-                        "id": 4621,
+                        "id": 4667,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -173,7 +173,7 @@
                           "typeString": "uint160"
                         }
                       ],
-                      "id": 4614,
+                      "id": 4660,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -185,14 +185,14 @@
                         "typeString": "type(address)"
                       },
                       "typeName": {
-                        "id": 4613,
+                        "id": 4659,
                         "name": "address",
                         "nodeType": "ElementaryTypeName",
                         "src": "375:7:16",
                         "typeDescriptions": {}
                       }
                     },
-                    "id": 4622,
+                    "id": 4668,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -208,14 +208,14 @@
                       "typeString": "address"
                     }
                   },
-                  "functionReturnParameters": 4612,
-                  "id": 4623,
+                  "functionReturnParameters": 4658,
+                  "id": 4669,
                   "nodeType": "Return",
                   "src": "368:44:16"
                 }
               ]
             },
-            "id": 4625,
+            "id": 4671,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -223,17 +223,17 @@
             "nameLocation": "290:15:16",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 4609,
+              "id": 4655,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 4608,
+                  "id": 4654,
                   "mutability": "mutable",
                   "name": "bytesValue",
                   "nameLocation": "314:10:16",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4625,
+                  "scope": 4671,
                   "src": "306:18:16",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -242,7 +242,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 4607,
+                    "id": 4653,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "306:7:16",
@@ -257,17 +257,17 @@
               "src": "305:20:16"
             },
             "returnParameters": {
-              "id": 4612,
+              "id": 4658,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 4611,
+                  "id": 4657,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4625,
+                  "scope": 4671,
                   "src": "349:7:16",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -276,7 +276,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 4610,
+                    "id": 4656,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "349:7:16",
@@ -291,7 +291,7 @@
               ],
               "src": "348:9:16"
             },
-            "scope": 4642,
+            "scope": 4688,
             "src": "281:138:16",
             "stateMutability": "pure",
             "virtual": false,
@@ -299,7 +299,7 @@
           },
           {
             "body": {
-              "id": 4640,
+              "id": 4686,
               "nodeType": "Block",
               "src": "504:54:16",
               "statements": [
@@ -309,11 +309,11 @@
                       {
                         "arguments": [
                           {
-                            "id": 4636,
+                            "id": 4682,
                             "name": "addressValue",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 4627,
+                            "referencedDeclaration": 4673,
                             "src": "537:12:16",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
@@ -328,7 +328,7 @@
                               "typeString": "address"
                             }
                           ],
-                          "id": 4635,
+                          "id": 4681,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -340,14 +340,14 @@
                             "typeString": "type(bytes20)"
                           },
                           "typeName": {
-                            "id": 4634,
+                            "id": 4680,
                             "name": "bytes20",
                             "nodeType": "ElementaryTypeName",
                             "src": "529:7:16",
                             "typeDescriptions": {}
                           }
                         },
-                        "id": 4637,
+                        "id": 4683,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -371,7 +371,7 @@
                           "typeString": "bytes20"
                         }
                       ],
-                      "id": 4633,
+                      "id": 4679,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -383,14 +383,14 @@
                         "typeString": "type(bytes32)"
                       },
                       "typeName": {
-                        "id": 4632,
+                        "id": 4678,
                         "name": "bytes32",
                         "nodeType": "ElementaryTypeName",
                         "src": "521:7:16",
                         "typeDescriptions": {}
                       }
                     },
-                    "id": 4638,
+                    "id": 4684,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -406,14 +406,14 @@
                       "typeString": "bytes32"
                     }
                   },
-                  "functionReturnParameters": 4631,
-                  "id": 4639,
+                  "functionReturnParameters": 4677,
+                  "id": 4685,
                   "nodeType": "Return",
                   "src": "514:37:16"
                 }
               ]
             },
-            "id": 4641,
+            "id": 4687,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -421,17 +421,17 @@
             "nameLocation": "434:15:16",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 4628,
+              "id": 4674,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 4627,
+                  "id": 4673,
                   "mutability": "mutable",
                   "name": "addressValue",
                   "nameLocation": "458:12:16",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4641,
+                  "scope": 4687,
                   "src": "450:20:16",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -440,7 +440,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 4626,
+                    "id": 4672,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "450:7:16",
@@ -456,17 +456,17 @@
               "src": "449:22:16"
             },
             "returnParameters": {
-              "id": 4631,
+              "id": 4677,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 4630,
+                  "id": 4676,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 4641,
+                  "scope": 4687,
                   "src": "495:7:16",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -475,7 +475,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 4629,
+                    "id": 4675,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "495:7:16",
@@ -489,14 +489,14 @@
               ],
               "src": "494:9:16"
             },
-            "scope": 4642,
+            "scope": 4688,
             "src": "425:133:16",
             "stateMutability": "pure",
             "virtual": false,
             "visibility": "internal"
           }
         ],
-        "scope": 4643,
+        "scope": 4689,
         "src": "249:311:16",
         "usedErrors": []
       }
@@ -509,7 +509,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.11",
-  "updatedAt": "2023-03-05T09:52:00.260Z",
+  "updatedAt": "2023-03-05T20:00:42.652Z",
   "devdoc": {
     "author": "Solmate (https://github.com/transmissions11/solmate/blob/main/src/utils/Bytes32AddressLib.sol)",
     "kind": "dev",

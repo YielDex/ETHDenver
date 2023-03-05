@@ -5,13 +5,14 @@ import "./gelato/OpsReady.sol";
 import "./OrderBook.sol";
 import './LendingVault.sol';
 import "./uniswap/ISwapRouter.sol";
+import "./oracles/tellor/UsingTellor.sol";
 
-contract OrderExecutor is OpsReady {
+contract OrderExecutor is OpsReady, UsingTellor {
 
     uint public price; // temporary, testing purposes only
     address private deployer;
 
-    OrderBook private orderBook;
+    OrderBook private immutable orderBook;
     ISwapRouter private immutable swapRouter;
     LendingVault private lendingVault;
 
@@ -22,7 +23,7 @@ contract OrderExecutor is OpsReady {
         _; // Continue the execution of the function called
     }
 
-    constructor(address _ops, address _taskCreator, address _swapRouter) OpsReady(_ops, _taskCreator) {
+    constructor(address _ops, address _taskCreator, address _swapRouter, address payable _tellorAddress) OpsReady(_ops, _taskCreator) UsingTellor(_tellorAddress) {
         price = 100; // arbitrary price for testing
         deployer = msg.sender;
         orderBook = OrderBook(_taskCreator);
@@ -45,6 +46,13 @@ contract OrderExecutor is OpsReady {
 
         // Approving the appropriate amount that uniswap is gonna take on order to make the swap
         IERC20(orderBook.getOrder(0).tokenIn).approve(address(swapRouter), amountWithdrawed);
+
+        (uint256 fee, address feeToken) = _getFeeDetails();
+        // Here we need to verify gasfees with an oracle (like chainlink)
+
+        // Here we should put an order that is swapping the needed amount of underleying asset to wrapped native token
+        // Then unwrap it to be able to send them to gelato node at the end of the function execution
+
         // Naively set amountOutMinimum to 0. In production, use an oracle or other data source to choose a safer value for amountOutMinimum.
         // We also set the sqrtPriceLimitx96 to be 0 to ensure we swap our exact input amount.
         ISwapRouter.ExactInputSingleParams memory params =
@@ -64,9 +72,7 @@ contract OrderExecutor is OpsReady {
 
         orderBook.setExecuted(orderNonce);
         emit OrderDone("order_executed", orderNonce);
-        // 
-        (uint256 fee, address feeToken) = _getFeeDetails();
-        // on a les fees jusqu'à là
+        
         _transfer(fee, feeToken);
     }
 

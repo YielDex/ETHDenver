@@ -35,15 +35,15 @@
     "absolutePath": "project:/contracts/oracles/tellor/interface/IMappingContract.sol",
     "exportedSymbols": {
       "IMappingContract": [
-        2661
+        2707
       ]
     },
-    "id": 2662,
+    "id": 2708,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2653,
+        "id": 2699,
         "literals": [
           "solidity",
           "^",
@@ -60,9 +60,9 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "fullyImplemented": false,
-        "id": 2661,
+        "id": 2707,
         "linearizedBaseContracts": [
-          2661
+          2707
         ],
         "name": "IMappingContract",
         "nameLocation": "68:16:12",
@@ -70,7 +70,7 @@
         "nodes": [
           {
             "functionSelector": "87a475fd",
-            "id": 2660,
+            "id": 2706,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -78,17 +78,17 @@
             "nameLocation": "99:11:12",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 2656,
+              "id": 2702,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2655,
+                  "id": 2701,
                   "mutability": "mutable",
                   "name": "_id",
                   "nameLocation": "119:3:12",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2660,
+                  "scope": 2706,
                   "src": "111:11:12",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -97,7 +97,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 2654,
+                    "id": 2700,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "111:7:12",
@@ -112,17 +112,17 @@
               "src": "110:13:12"
             },
             "returnParameters": {
-              "id": 2659,
+              "id": 2705,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2658,
+                  "id": 2704,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 2660,
+                  "scope": 2706,
                   "src": "146:7:12",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -131,7 +131,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 2657,
+                    "id": 2703,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "146:7:12",
@@ -145,14 +145,14 @@
               ],
               "src": "145:9:12"
             },
-            "scope": 2661,
+            "scope": 2707,
             "src": "90:65:12",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 2662,
+        "scope": 2708,
         "src": "58:99:12",
         "usedErrors": []
       }
@@ -165,7 +165,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.11",
-  "updatedAt": "2023-03-05T09:52:00.251Z",
+  "updatedAt": "2023-03-05T20:00:42.628Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

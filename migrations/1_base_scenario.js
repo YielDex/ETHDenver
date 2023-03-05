@@ -15,12 +15,12 @@ module.exports = (deployer, _network, _accounts) => {
     
     // Deploying OrderBook contract
     OrderBook = await OrderBook.new(env.parsed.Ops);
-    OrderExecutor = await OrderExecutor.new(env.parsed.Ops, OrderBook.address, env.parsed.SwapRouter);
+    OrderExecutor = await OrderExecutor.new(env.parsed.Ops, OrderBook.address, env.parsed.SwapRouter, env.parsed.TellorOracle);
     await OrderBook.setOrderExecutor(OrderExecutor.address);
 
 
     // Deploying LendingVault contract
-		LendingVault = await LendingVault.new(env.parsed.IPoolAddressesProvider, env.parsed.USDC, OrderBook.address);
+		LendingVault = await LendingVault.new(env.parsed.IPoolAddressesProvider, OrderBook.address);
     await OrderBook.setLendingVault(LendingVault.address);
     await OrderExecutor.setLendingVault(LendingVault.address);
 
